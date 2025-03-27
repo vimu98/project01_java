@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.project01.SupplierController" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="txtId" layoutX="293.0" layoutY="76.0" />
+      <TextField fx:id="txtTel" layoutX="293.0" layoutY="208.0" />
+      <TextField fx:id="txtName" layoutX="293.0" layoutY="117.0" />
+      <TextField fx:id="txtAddress" layoutX="293.0" layoutY="163.0" />
+      <Label layoutX="130.0" layoutY="80.0" text="Supplier ID" />
+      <Label layoutX="130.0" layoutY="121.0" text="Supplier Name" />
+      <Label layoutX="130.0" layoutY="167.0" text="Address" />
+      <Label layoutX="130.0" layoutY="212.0" text="Tel No" />
+      <Label layoutX="204.0" layoutY="21.0" text="Supplier Details" textFill="#dc0909">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="477.0" layoutY="76.0" mnemonicParsing="false" onAction="#addBtn" prefHeight="26.0" prefWidth="59.0" text="Add" />
+      <Button layoutX="477.0" layoutY="116.0" mnemonicParsing="false" onAction="#updateBtn" prefHeight="26.0" prefWidth="59.0" text="Update" />
+      <Button layoutX="478.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteBtn" prefHeight="26.0" prefWidth="59.0" text="Delete" />
+      <Button layoutX="477.0" layoutY="208.0" mnemonicParsing="false" onAction="#searchBtn" prefHeight="26.0" prefWidth="59.0" text="Search" />
+      <TableView fx:id="tableView" layoutX="53.0" layoutY="260.0" prefHeight="200.0" prefWidth="487.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="id" />
+          <TableColumn prefWidth="123.20001220703125" text="name" />
+            <TableColumn prefWidth="159.99993896484375" text="address" />
+            <TableColumn prefWidth="128.00006103515625" text="tel no" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
