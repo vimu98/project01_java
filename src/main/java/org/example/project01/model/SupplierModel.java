@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 
 public class SupplierModel {
 
-    public static void saveData(SupplierDTO supplierDTO) {
+    public static int saveData(SupplierDTO supplierDTO) {
 
         try {
 
@@ -36,16 +36,12 @@ public class SupplierModel {
 
             int result = preparedStatement.executeUpdate();
 
-            if (result >=  0){
-                System.out.println("Added successfully");
-            }else {
-                System.out.println("Not added successfully");
-            }
+            return result;
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
+        return 0;
     }
 
 
