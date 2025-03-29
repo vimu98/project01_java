@@ -1,17 +1,17 @@
-package org.example.project01;
+package org.example.project01.controller;
 
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.example.project01.dto.SupplierDTO;
+import org.example.project01.model.SupplierModel;
+import org.example.project01.tm.Supplier;
 
-import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class SupplierController {
 
@@ -40,41 +40,11 @@ public class SupplierController {
         String address = txtAddress.getText();
         int tel = Integer.parseInt(txtTel.getText());
 
-        try {
+        SupplierDTO supplierDTO = new SupplierDTO(id, name, address, tel);
 
-            // 01 create a sql
+        SupplierModel.saveData(supplierDTO);
 
-            String SQL = "INSERT INTO Supplier VALUES(?, ?, ?, ?)";
 
-            // 02 run the driver s/w
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // 03 create a connection to the db
-
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos_system","root","Vimu@2164");
-
-            // 04 create a statement
-
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setString(1, id);
-            preparedStatement.setString(2, name);
-            preparedStatement.setString(3, address);
-            preparedStatement.setInt(4, tel);
-
-            // 05 execute the sql
-
-            int result = preparedStatement.executeUpdate();
-
-            if (result >=  0){
-                System.out.println("Added successfully");
-            }else {
-                System.out.println("Not added successfully");
-            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public void updateBtn(ActionEvent actionEvent) {

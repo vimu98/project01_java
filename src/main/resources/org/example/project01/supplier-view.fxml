@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.project01.SupplierController" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.project01.controller.SupplierController" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="txtId" layoutX="293.0" layoutY="76.0" />
       <TextField fx:id="txtTel" layoutX="293.0" layoutY="208.0" />
