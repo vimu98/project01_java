@@ -1,11 +1,17 @@
 package org.example.project01;
 
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class SupplierController {
 
@@ -13,7 +19,19 @@ public class SupplierController {
     public TextField txtTel;
     public TextField txtName;
     public TextField txtAddress;
-    public TableView tableView;
+    public TableView<Supplier> tableView;
+
+    public void initialize() {
+        tableView.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+        tableView.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+        tableView.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("address"));
+        tableView.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("tel"));
+
+        ArrayList<Supplier> List = getAllSuppliers();
+
+        tableView.setItems(FXCollections.observableArrayList(List));
+
+    }
 
     public void addBtn(ActionEvent actionEvent) {
 
@@ -180,11 +198,55 @@ public class SupplierController {
 
             }
 
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
+    }
+
+    public ArrayList<Supplier> getAllSuppliers(){
+
+        try {
+
+            // 01 create a sql
+
+            String SQL = "Select * FROM Supplier";
+
+            // 02 run the driver s/w
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 03 create a connection to the db
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos_system","root","Vimu@2164");
+
+            // 04 create a statement
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            // 05 execute the sql
+
+            ResultSet result = preparedStatement.executeQuery();
+
+            ArrayList<Supplier> suppliers = new ArrayList<>();
+
+            while (result.next()){
+
+                suppliers.add(new Supplier( result.getString("sid"),
+                        result.getString("sname"),
+                        result.getString("address"),
+                        String.valueOf(result.getInt("tel"))
+                ));
+
+            }
+
+            return suppliers;
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
+
+        return null;
     }
 }
