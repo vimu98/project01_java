@@ -46,6 +46,7 @@ public class SupplierController {
 
         if (result >=  0){
             System.out.println("Added successfully");
+            initialize();
         }else {
             System.out.println("Not added successfully");
         }
