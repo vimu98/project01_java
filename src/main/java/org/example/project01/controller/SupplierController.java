@@ -27,7 +27,7 @@ public class SupplierController {
         tableView.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("address"));
         tableView.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("tel"));
 
-        ArrayList<Supplier> List = getAllSuppliers();
+        ArrayList<Supplier> List = SupplierModel.getAllSuppliers();
 
         tableView.setItems(FXCollections.observableArrayList(List));
 
@@ -181,49 +181,5 @@ public class SupplierController {
 
     }
 
-    public ArrayList<Supplier> getAllSuppliers(){
 
-        try {
-
-            // 01 create a sql
-
-            String SQL = "Select * FROM Supplier";
-
-            // 02 run the driver s/w
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // 03 create a connection to the db
-
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos_system","root","Vimu@2164");
-
-            // 04 create a statement
-
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
-            // 05 execute the sql
-
-            ResultSet result = preparedStatement.executeQuery();
-
-            ArrayList<Supplier> suppliers = new ArrayList<>();
-
-            while (result.next()){
-
-                suppliers.add(new Supplier( result.getString("sid"),
-                        result.getString("sname"),
-                        result.getString("address"),
-                        String.valueOf(result.getInt("tel"))
-                ));
-
-            }
-
-            return suppliers;
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        return null;
-    }
 }

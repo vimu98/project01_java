@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.project01.controller.ProductController" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label layoutX="144.0" layoutY="100.0" text="Product Name" />
         <Label layoutX="144.0" layoutY="141.0" text="Description" />
@@ -24,11 +24,11 @@
         <Button layoutX="570.0" layoutY="83.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="54.0" text="Insert" />
         <TableView fx:id="tableView" layoutX="51.0" layoutY="273.0" prefHeight="310.0" prefWidth="696.0">
             <columns>
-                <TableColumn fx:id="idColumn" prefWidth="103.20001220703125" text="ID" />
-                <TableColumn fx:id="nameColumn" prefWidth="137.5999755859375" text="Product Name" />
-                <TableColumn fx:id="priceColumn" prefWidth="124.800048828125" text="Unit Price" />
-                <TableColumn fx:id="desColumn" prefWidth="201.5999755859375" text="Description" />
-                <TableColumn fx:id="supplierColumn" prefWidth="131.199951171875" text="Supprier ID" />
+                <TableColumn  prefWidth="103.20001220703125" text="ID" />
+                <TableColumn  prefWidth="137.5999755859375" text="Product Name" />
+                <TableColumn  prefWidth="124.800048828125" text="Unit Price" />
+                <TableColumn  prefWidth="201.5999755859375" text="Description" />
+                <TableColumn  prefWidth="131.199951171875" text="Supprier ID" />
             </columns>
         </TableView>
         <ComboBox fx:id="supplierField" layoutX="317.0" layoutY="220.0" prefWidth="150.0" promptText="Supplier ID" />
