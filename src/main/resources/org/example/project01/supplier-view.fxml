@@ -6,11 +6,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.project01.controller.SupplierController" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.project01.controller.SupplierController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a4781" height="59.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <TextField fx:id="txtId" layoutX="293.0" layoutY="76.0" />
       <TextField fx:id="txtTel" layoutX="293.0" layoutY="208.0" />
       <TextField fx:id="txtName" layoutX="293.0" layoutY="117.0" />
@@ -19,7 +20,7 @@
       <Label layoutX="130.0" layoutY="121.0" text="Supplier Name" />
       <Label layoutX="130.0" layoutY="167.0" text="Address" />
       <Label layoutX="130.0" layoutY="212.0" text="Tel No" />
-      <Label layoutX="204.0" layoutY="21.0" text="Supplier Details" textFill="#dc0909">
+      <Label layoutX="224.0" layoutY="14.0" text="Supplier Details" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
